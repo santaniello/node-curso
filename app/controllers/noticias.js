@@ -11,8 +11,9 @@ module.exports.noticias = function(application,request,response){
 module.exports.noticia = function(application,request,response){
     var connection = application.config.mysql_database();
     var noticiasModel = new application.app.models.NoticiaDAO(connection);      
-    noticiasModel.getNoticia(function(error, result){             
-        // enviando o resultado da consulta para a pagina html
+    let idNoticia = request.query;    
+    noticiasModel.getNoticia(idNoticia,function(error, result){             
+        // enviando o resultado da consulta para a pagina html                
         response.render('noticias/noticia',{noticia : result});
     });
 }

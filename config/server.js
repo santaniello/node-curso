@@ -39,8 +39,9 @@ app.use(bodyParser.json()); // for parsing application/json
  * Registrando o express-validator (OBS: Assim como o Body Parser, 
  * ele também é um middleware)...
  */
-app.use(expressValidator())
-
+app.use(expressValidator());
+// Passando a localização dos arquivos estáticos para o node
+app.use(express.static('./app/public'));
 
 /**
  * Responsável por fazer o autoload dos nossos módulos
