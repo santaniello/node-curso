@@ -53,6 +53,7 @@ app.use(expressValidator())
 consign().include('app/routes') // carrega rotas
          .then('config/mysql_database.js') // carrega as confs (poderia ser diversas outras coisas tais como: controllers e etc...)
          .then('app/models')
+         .then('app/controllers')
          .into(app);
 
 

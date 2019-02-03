@@ -1,11 +1,9 @@
 module.exports = function(application){    
     application.get('/noticias',function(request, response){
-        var connection = application.config.mysql_database();
-        // Instância uma classe
-        var noticiasModel = new application.app.models.NoticiaDAO(connection);
-        noticiasModel.getNoticias(function(error, result){                  
-            // enviando o resultado da consulta para a pagina html
-            response.render('noticias/noticias',{noticias : result});
-        });        
+          application.app.controllers.noticias.noticias(application,request,response);
+    });
+
+    application.get('/noticia',function(request, response){
+        application.app.controllers.noticias.noticia(application,request,response);
     });
 }    
