@@ -2,6 +2,7 @@
 let express = require('express');
 let app = express();
 let consign = require('consign');
+let bodyParser = require('body-parser');
 
 /**
  *  Aqui integramos o EJS com o Express 
@@ -15,6 +16,20 @@ app.set('views','./app/views');
 app.listen(3000,function(){
   console.log("Servidor rodando com Express");
 });
+
+/**
+ * Aqui parametrizando o body-parser que será responsavel por parsear os dados
+ * que vem do formulário.
+ * O Body Parser funciona como um middleware ou seja ele atua entre os nossos
+ * objetos de requisição e resposta.
+ * 
+ * OBS: Todo middleware deve estar configurado antes de fazermos o carregamento dos nossos
+ * módulos...
+ */
+app.use(bodyParser.urlencoded({
+    extended:true 
+}));  // for parsing application/x-www-form-urlencoded
+app.use(bodyParser.json()); // for parsing application/json
 
 
 /**
