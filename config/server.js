@@ -3,6 +3,7 @@ let express = require('express');
 let app = express();
 let consign = require('consign');
 let bodyParser = require('body-parser');
+let expressValidator = require('express-validator');
 
 /**
  *  Aqui integramos o EJS com o Express 
@@ -25,11 +26,20 @@ app.listen(3000,function(){
  * 
  * OBS: Todo middleware deve estar configurado antes de fazermos o carregamento dos nossos
  * módulos...
+ *
+ *  https://pt.stackoverflow.com/questions/64507/o-que-s%C3%A3o-middlewares-em-nodejs
+ * 
  */
 app.use(bodyParser.urlencoded({
     extended:true 
 }));  // for parsing application/x-www-form-urlencoded
 app.use(bodyParser.json()); // for parsing application/json
+
+/** 
+ * Registrando o express-validator (OBS: Assim como o Body Parser, 
+ * ele também é um middleware)...
+ */
+app.use(expressValidator())
 
 
 /**
