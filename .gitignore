@@ -1,0 +1,11 @@
+### Node ###
+node_modules/
+.vscode/
+".~lock.documenta\303\247\303\243o.odt#"
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
